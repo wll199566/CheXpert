@@ -100,10 +100,10 @@ def parse_cli(params):
     parser.add_argument('--workers', type=int, default=0, metavar='W',
                         help='workers (default: 0)')
 
-    parser.add_argument('--train_dir', default="./data/', type=str, metavar='PATHT',
+    parser.add_argument('--train_dir', default="../data/", type=str, metavar='PATHT',
                         help='path to the training files (default: data folder)')
 
-    parser.add_argument('--val_dir', default="./data/', type=str, metavar='PATHV',
+    parser.add_argument('--val_dir', default="../data/", type=str, metavar='PATHV',
                         help='path to the validation files (default: data folder)')   
 
     args = parser.parse_args()
