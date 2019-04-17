@@ -1,0 +1,19 @@
+# training
+batch_size: 16
+epochs: 100
+init_learning_rate: 0.01
+
+# model
+pretrained: True
+
+# Adam
+beta1: 0.9
+beta2: 0.98
+epsilon: 1e-6
+
+# system
+log_interval: 100
+seed: 1
+
+      
+                    
