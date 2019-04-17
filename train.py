@@ -293,22 +293,21 @@ def validation(epoch, model, criterion, loader, device, log_callback):
             correct_sup_dev += torch.sum(torch.max(preds[:, 38:40], dim=1)[1] == sup_dev_label).item()
 
 
-            elapse = time.time() - start_time
-            
-            # write the information into the log file
-            log_callback("Epoch: {}\t Validation process".format(epoch))
-            
-            log_callback()    
-            
-            log_callback("Epoch: {0} \t"
-                         "Time: {1}s / {2} batches, avg_time: {3}\n".format(
-                         epoch, elapse, len(loader), elapse / len(loader) ))
-
-            
-            log_callback("Train Epoch: {} [{}/{} ({:.0f}%)]\tValidation Loss: {:.6f}".format(
-                epoch, batch_idx * image.shape[0], len(loader.dataset), 100. * batch_idx / len(loader), running_loss / len(loader)))
-            
-            log_callback()
+        elapse = time.time() - start_time
+        
+        # write the information into the log file
+        log_callback("Epoch: {}\t Validation process".format(epoch))
+        
+        log_callback()    
+        
+        log_callback("Epoch: {0} \t"
+                     "Time: {1}s / {2} batches, avg_time: {3}\n".format(
+                     epoch, elapse, len(loader), elapse / len(loader) ))
+        
+        log_callback("Train Epoch: {} [{}/{} ({:.0f}%)]\tValidation Loss: {:.6f}".format(
+            epoch, batch_idx * image.shape[0], len(loader.dataset), 100. * batch_idx / len(loader), running_loss / len(loader)))
+        
+        log_callback()
     
         # to construct a dictionary to store all the validation accuracy
         validation_accuracy = {"No Finding" : correct_no_finding / total, 
