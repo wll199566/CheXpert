@@ -99,7 +99,7 @@ def train(epoch, model, optimizer, scheduler, criterion, loader, device, log_int
         loss_ple_eff = criterion["Pleural Effusion"](preds[:, 29:32], ple_eff_label)
         loss_ple_other = criterion["Pleural Other"](preds[:, 32:35], ple_other_label)
         loss_frac = criterion["Fracture"](preds[:, 35:38], frac_label)
-        loss_sup_dev = criterion["Support Devices"](preds[38:41], sup_dev_label)
+        loss_sup_dev = criterion["Support Devices"](preds[:, 38:41], sup_dev_label)
 
         loss = (1/14)*(loss_no_finding + loss_en_card + loss_card + loss_lung_op + loss_lung_le + loss_edema + loss_cons + loss_pneu + loss_atelec + loss_pneurax + loss_ple_eff + loss_ple_other + loss_frac + loss_sup_dev)
         
@@ -264,7 +264,7 @@ def validation(epoch, model, criterion, loader, device, log_callback):
             loss_ple_eff = criterion["Pleural Effusion"](preds[:, 29:32], ple_eff_label)
             loss_ple_other = criterion["Pleural Other"](preds[:, 32:35], ple_other_label)
             loss_frac = criterion["Fracture"](preds[:, 35:38], frac_label)
-            loss_sup_dev = criterion["Support Devices"](preds[38:41], sup_dev_label)
+            loss_sup_dev = criterion["Support Devices"](preds[:, 38:41], sup_dev_label)
     
             loss = (1/14)*(loss_no_finding + loss_en_card + loss_card + loss_lung_op + loss_lung_le + loss_edema + loss_cons + loss_pneu + loss_atelec + loss_pneurax + loss_ple_eff + loss_ple_other + loss_frac + loss_sup_dev) 
     
