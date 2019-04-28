@@ -142,7 +142,10 @@ optimizer = optim.Adam(model.parameters(), lr=args.lr, betas=(args.beta1, args.b
 scheduler = lr_scheduler.ReduceLROnPlateau(optimizer, mode="min", factor=0.1, patience=2, verbose=True)
 
 # define the criterion
-# Note to add the classes weights!!!!!!!!!!!!1
+# Note to add the classes weights!!!!!!!!!!!!
+# HOW TO COMPUTE THE WEIGHT:
+# |N|+|P|+|U| / |T|, where |T| = |N|, |P| or |U|
+# the order in the following is N, P, U
 criterion_no_finding = nn.CrossEntropyLoss(weight=torch.FloatTensor([1.11, 9.98]).to(device))
 criterion_en_card = nn.CrossEntropyLoss(weight=torch.FloatTensor([1.12, 20.69, 18.01]).to(device))
 criterion_card = nn.CrossEntropyLoss(weight=torch.FloatTensor([1.19, 8.27, 27.63]).to(device))
