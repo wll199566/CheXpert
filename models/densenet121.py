@@ -12,6 +12,6 @@ def make_model(pretrained=True):
         - model: the customized densenet121 model    
     """
     model = models.densenet121(pretrained=pretrained)
-    model.classifier = nn.Linear(in_features=16384, out_features=41, bias=True)
+    model.classifier = nn.Linear(in_features=1024, out_features=41, bias=True)
 
     return model
