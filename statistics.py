@@ -39,7 +39,7 @@ std_train = 0.0
 num_samples_train = 0.0
 for train_image_file in train_image_filenames:
     image = io.imread(image_root_path+train_image_file)
-    image = np.repeat(image[None,...], 3, axis=0)
+    image = np.repeat(image[None,...], 3, axis=0).transpose(1, 2, 0)
     image = train_transform(image)
     image = image.view(image.size(0), -1)
     mean_train += image.float().mean(1)
@@ -55,7 +55,7 @@ std_valid = 0.0
 num_samples_valid = 0.0
 for valid_image_file in valid_image_filenames:
     image = io.imread(image_root_path+valid_image_file)
-    image = np.repeat(image[None,...], 3, axis=0)
+    image = np.repeat(image[None,...], 3, axis=0).transpose(1, 2, 0)
     image = train_transform(image)
     image = image.view(image.size(0), -1)
     mean_valid += image.float().mean(1)
