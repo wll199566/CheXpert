@@ -196,7 +196,7 @@ best_val_loss = np.inf
 start_epoch = 1
 for epoch in range(start_epoch, args.epochs + 1):
     # train
-    train_loss, train_acc = train(epoch, model, optimizer, scheduler, criterions, train_loader, device, args.log_interval, append_line_to_log, checkPath)
+    train_loss, train_acc = train(epoch, model, optimizer, criterions, train_loader, device, args.log_interval, append_line_to_log, checkPath)
     history["train_loss"].append(train_loss)
     history["train_acc"].append(train_acc)
 

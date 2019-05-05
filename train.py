@@ -10,7 +10,7 @@ import time
 
 from utils import torch_utils
 
-def train(epoch, model, optimizer, scheduler, criterion, loader, device, log_interval, log_callback, ckpt_foldername):
+def train(epoch, model, optimizer, criterion, loader, device, log_interval, log_callback, ckpt_foldername):
     """
     Args:
         - epoch: the current epoch index
@@ -154,7 +154,7 @@ def train(epoch, model, optimizer, scheduler, criterion, loader, device, log_int
 
     # to save the training model as a checkpoint 
     # Note here how the scheduler works!!!!!!!!!!!!!
-    torch_utils.save(ckpt_foldername + "/CheXpert_" + str(epoch) + ".cpkt", epoch, model, optimizer, scheduler)    
+    torch_utils.save(ckpt_foldername + "/CheXpert_" + str(epoch) + ".cpkt", epoch, model, optimizer)    
     
     # to construct a dictionary to store all the training accuracy
     training_accuracy = {"No Finding" : correct_no_finding / total, 
