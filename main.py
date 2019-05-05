@@ -3,7 +3,7 @@ import torch
 import torch.nn as nn
 
 import torch.optim as optim
-import torch.optim.lr_scheduler as lr_scheduler
+#import torch.optim.lr_scheduler as lr_scheduler
 
 import numpy as np
 
@@ -139,7 +139,7 @@ model.to(device)
 optimizer = optim.Adam(model.parameters(), lr=args.lr, betas=(args.beta1, args.beta2), eps=args.epsilon)
 
 # define scheduler
-scheduler = lr_scheduler.ReduceLROnPlateau(optimizer, mode="min", factor=0.1, patience=2, verbose=True)
+#scheduler = lr_scheduler.ReduceLROnPlateau(optimizer, mode="min", factor=0.1, patience=2, verbose=True)
 
 # define the criterion
 # Note to add the classes weights!!!!!!!!!!!!
@@ -205,7 +205,7 @@ for epoch in range(start_epoch, args.epochs + 1):
     history["valid_loss"].append(valid_loss)
     history["valid_acc"].append(valid_acc)
 
-    scheduler.step(valid_loss)
+    #scheduler.step(valid_loss)
 
     # save the best model
     is_best = valid_loss < best_val_loss

@@ -1,14 +1,14 @@
 # training
 batch_size: 16
 epochs: 100
-init_learning_rate: 0.01
+init_learning_rate: 0.0001
 
 # model
 pretrained: True
 
 # Adam
 beta1: 0.9
-beta2: 0.98
+beta2: 0.999
 epsilon: 1e-6
 
 # system
